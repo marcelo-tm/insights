@@ -1,22 +1,22 @@
 import { Outlet, createRootRoute } from "@tanstack/react-router";
-import { Menu } from "../components/Menu";
 import { Header } from "../components/Header";
+import useBreakpoint from "../hooks/useBreakpoint";
+import { Sidebar } from "../components/Sidebar/Sidebar";
 
 export const Route = createRootRoute({
 	component: RootComponent,
 });
 
 function RootComponent() {
+	const { isBigScreen } = useBreakpoint();
+
 	return (
-		<div className="w-full h-screen gap-4 p-4 font-lato bg-background text-text-primary">
+		<div className="w-full h-screen p-6 bg-cover lg:p-4 bg-light-bg dark:bg-dark-bg font-lato text-text-primary">
 			<Header />
-			<div className="flex">
-				<Menu />
-				<main className="w-full">
-					<div className="p-4 rounded-3xl bg-surface">
-						<Outlet />
-					</div>
-				</main>
+
+			<div className="flex gap-10">
+				{isBigScreen && <Sidebar />}
+				<Outlet />
 			</div>
 		</div>
 	);

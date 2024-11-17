@@ -24,6 +24,15 @@ export default {
 				lato: ["Lato", "sans-serif"],
 				"dm-mono": ["DM Mono", "monospace"],
 			},
+			backgroundImage: {
+				"dark-bg": "url('/dark_bg.png')",
+				"light-bg": "url('/light_bg.png')",
+			},
+		},
+	},
+	variants: {
+		extend: {
+			backgroundImage: ["light"],
 		},
 	},
 	plugins: [],

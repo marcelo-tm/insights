@@ -14,8 +14,13 @@ const breakpoints = {
 export default function useBreakpoint() {
 	const [breakpoint, setBreakpoint] = useState<Breakpoint>("xs");
 
-	const isMobile = useMemo(
-		() => ["xs", "sm"].includes(breakpoint),
+	const isSmallScreen = useMemo(
+		() => ["xs", "sm", "md"].includes(breakpoint),
+		[breakpoint]
+	);
+
+	const isBigScreen = useMemo(
+		() => ["lg", "xl", "2xl"].includes(breakpoint),
 		[breakpoint]
 	);
 
@@ -43,5 +48,5 @@ export default function useBreakpoint() {
 		return () => window.removeEventListener("resize", handleResize);
 	}, []);
 
-	return { breakpoint, isMobile };
+	return { breakpoint, isSmallScreen, isBigScreen };
 }
