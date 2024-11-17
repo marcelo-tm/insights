@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -30,23 +29,14 @@
     --error: 0deg 84% 60%; /* #ef4444 */
     --info: 217deg 91% 60%; /* #3b82f6 */
 
-   /* Light Theme */
-    --light-background: var(--gray-100);
+   /* Theme */
+    --light-background: var(--gray-50);
     --light-surface: 0deg 0% 100%; /* #ffffff */
     --light-text-primary: var(--gray-900);
     --light-text-secondary: var(--gray-600);
     --light-border: var(--gray-200);
     --light-hover: var(--gray-100);
     --light-disabled: var(--gray-300);
-
-    /* Dark Theme */
-    --dark-background: var(--gray-900);
-    --dark-surface: var(--gray-800);
-    --dark-text-primary: 0deg 0% 100%; /* #ffffff */
-    --dark-text-secondary: var(--gray-400);
-    --dark-border: var(--gray-700);
-    --dark-hover: var(--gray-700);
-    --dark-disabled: var(--gray-600);
 
     /* Component States */
     --primary-hover: 210deg 94% 41%; /* #0869cc */
@@ -68,17 +58,5 @@
     --hover: var(--light-hover);
     --disabled: var(--light-disabled);
     --overlay: var(--overlay-light);
-  }
-
-  /* Dark Mode Class */
-  .dark {
-    --background: var(--dark-background);
-    --surface: var(--dark-surface);
-    --text-primary: var(--dark-text-primary);
-    --text-secondary: var(--dark-text-secondary);
-    --border: var(--dark-border);
-    --hover: var(--dark-hover);
-    --disabled: var(--dark-disabled);
-    --overlay: var(--overlay-dark);
   }
 }

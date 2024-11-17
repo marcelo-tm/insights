@@ -3,7 +3,6 @@ import { Bell, Settings } from "lucide-react";
 import { CircleButton } from "./CircleButton";
 import { Logo } from "./Logo";
 import useBreakpoint from "../hooks/useBreakpoint";
-import { ThemeToggle } from "./ThemeToggle";
 import { MobileSidebar } from "./Sidebar/MobileSidebar";
 
 export function Header() {
@@ -25,7 +24,6 @@ export function Header() {
 			</div>
 
 			<div className="flex items-center gap-4">
-				<ThemeToggle />
 				<CircleButton
 					icon={<Bell />}
 					label="Notifications"

@@ -1,14 +1,17 @@
 import { Link } from "@tanstack/react-router";
 import type { ReactNode } from "react";
+
 import { cn } from "../utils/general";
-import { Tooltip } from "./Tooltip";
+import { SidebarTooltip } from "./Sidebar/SidebarTooltip";
+import type { TooltipPosition } from "../types/general";
 
 type CircleButtonProps = {
 	icon: ReactNode;
-	label: string;
+	label?: string;
 	path?: string;
 	onClick?: () => void;
 	className?: string;
+	tooltipPosition?: TooltipPosition;
 };
 
 export function CircleButton({
@@ -17,6 +20,7 @@ export function CircleButton({
 	path,
 	onClick,
 	className,
+	tooltipPosition = "right",
 }: CircleButtonProps) {
 	if (path) {
 		return (
@@ -24,7 +28,7 @@ export function CircleButton({
 				{({ isActive }) => (
 					<div
 						className={cn(
-							"p-4 rounded-full bg-surface/50 hover:bg-hover relative group transition-all duration-300 shadow-md",
+							"p-4 rounded-full bg-surface hover:bg-hover relative group transition-all duration-300 shadow-md",
 							{
 								"bg-primary-light text-white hover:bg-primary": isActive,
 								className,
@@ -32,7 +36,7 @@ export function CircleButton({
 						)}
 					>
 						{icon}
-						<Tooltip text={label} isActive={isActive} />
+						{label && <SidebarTooltip text={label} isActive={isActive} />}
 					</div>
 				)}
 			</Link>
@@ -44,11 +48,14 @@ export function CircleButton({
 			type="button"
 			onClick={onClick}
 			className={cn(
-				"p-4 rounded-full bg-surface/50 hover:bg-hover shadow-md",
+				"p-4 rounded-full bg-surface hover:bg-hover relative group transition-all duration-300 shadow-md",
 				className
 			)}
 		>
 			{icon}
+			{label && (
+				<SidebarTooltip text={label} tooltipPosition={tooltipPosition} />
+			)}
 		</button>
 	);
 }

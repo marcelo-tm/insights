@@ -8,14 +8,17 @@ export const Route = createRootRoute({
 });
 
 function RootComponent() {
-	const { isBigScreen } = useBreakpoint();
+	const { isSmallScreen } = useBreakpoint();
 
 	return (
-		<div className="w-full h-screen p-6 bg-cover lg:p-4 bg-light-bg dark:bg-dark-bg font-lato text-text-primary">
+		<div
+			className="w-full min-h-screen p-4 bg-fixed bg-light-bg font-lato text-text-primary"
+			style={{ backgroundAttachment: "fixed" }}
+		>
 			<Header />
 
-			<div className="flex gap-10">
-				{isBigScreen && <Sidebar />}
+			<div className="flex w-full gap-10">
+				{!isSmallScreen && <Sidebar />}
 				<Outlet />
 			</div>
 		</div>

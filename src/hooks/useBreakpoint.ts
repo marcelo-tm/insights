@@ -19,11 +19,6 @@ export default function useBreakpoint() {
 		[breakpoint]
 	);
 
-	const isBigScreen = useMemo(
-		() => ["lg", "xl", "2xl"].includes(breakpoint),
-		[breakpoint]
-	);
-
 	useEffect(() => {
 		const handleResize = () => {
 			const width = window.innerWidth;
@@ -48,5 +43,5 @@ export default function useBreakpoint() {
 		return () => window.removeEventListener("resize", handleResize);
 	}, []);
 
-	return { breakpoint, isSmallScreen, isBigScreen };
+	return { breakpoint, isSmallScreen };
 }
