@@ -7,7 +7,7 @@ type ProgressBarProps = {
 
 export function ProgressBar({ progress, progressColor }: ProgressBarProps) {
 	return (
-		<div className="w-full bg-slate-100 h-4 rounded-full overflow-hidden">
+		<div className="w-full bg-slate-100 h-3 rounded-full overflow-hidden">
 			<div
 				className={cn("bg-info h-full rounded-full", progressColor)}
 				style={{ width: `${progress}%` }}

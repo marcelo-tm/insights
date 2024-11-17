@@ -1,0 +1,82 @@
+[
+	{
+		"id": 1,
+		"blocked": "Charlie",
+		"blocked_by": "Dependency on Design Team",
+		"reason": "Backend team delays",
+		"owner": "Charlie",
+		"level": "medium"
+	},
+	{
+		"id": 2,
+		"blocked": "Bob",
+		"blocked_by": "Awaiting Approval",
+		"reason": "Pending stakeholder review",
+		"owner": "Diana",
+		"level": "high"
+	},
+	{
+		"id": 3,
+		"blocked": "Bob",
+		"blocked_by": "Awaiting Approval",
+		"reason": "Pending stakeholder review",
+		"owner": "Charlie",
+		"level": "low"
+	},
+	{
+		"id": 4,
+		"blocked": "Evelyn",
+		"blocked_by": "API Integration",
+		"reason": "Design specs not finalized",
+		"owner": "Charlie",
+		"level": "low"
+	},
+	{
+		"id": 5,
+		"blocked": "Charlie",
+		"blocked_by": "Dependency on Design Team",
+		"reason": "Pending stakeholder review",
+		"owner": "Alice",
+		"level": "high"
+	},
+	{
+		"id": 6,
+		"blocked": "Evelyn",
+		"blocked_by": "API Integration",
+		"reason": "Backend team delays",
+		"owner": "Diana",
+		"level": "medium"
+	},
+	{
+		"id": 7,
+		"blocked": "Alice",
+		"blocked_by": "API Integration",
+		"reason": "Backend team delays",
+		"owner": "Diana",
+		"level": "high"
+	},
+	{
+		"id": 8,
+		"blocked": "Evelyn",
+		"blocked_by": "Dependency on Design Team",
+		"reason": "Design specs not finalized",
+		"owner": "Diana",
+		"level": "high"
+	},
+	{
+		"id": 9,
+		"blocked": "Charlie",
+		"blocked_by": "API Integration",
+		"reason": "Backend team delays",
+		"owner": "Diana",
+		"level": "high"
+	},
+	{
+		"id": 10,
+		"blocked": "Evelyn",
+		"blocked_by": "Awaiting Approval",
+		"reason": "Pending stakeholder review",
+		"owner": "Charlie",
+		"level": "medium"
+	}
+]

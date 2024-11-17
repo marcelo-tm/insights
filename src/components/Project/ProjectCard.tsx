@@ -5,7 +5,8 @@ import type { Project, ProjectStatusList } from "../../types/project";
 import { returnProjectStatusInfo } from "../../utils/projects";
 import { cn } from "../../utils/general";
 import { ProgressBar } from "../ProgressBar";
-import { AvatarGroup } from "./AvatarGroup";
+import { StatusLabel } from "../Content/StatusLabel";
+import { AvatarGroup } from "../Content/AvatarGroup";
 
 type ProjectCardProps = {
 	project: Project;
@@ -27,31 +28,16 @@ export function ProjectCard({ project }: ProjectCardProps) {
 				className={cn("flex items-center justify-between rounded-t-xl pb-4")}
 			>
 				<p className="font-bold">{project.name}</p>
-				<div
-					className={cn(
-						"text-white text-sm p-2 px-3 rounded-lg flex gap-2 items-center whitespace-nowrap",
-						{
-							"bg-error": color === "error",
-							"bg-warning": color === "warning",
-							"bg-success": color === "success",
-							"bg-info": color === "info",
-						}
-					)}
-				>
-					{<Icon size={16} />}
-					{label}
-				</div>
+				<StatusLabel color={color} icon={Icon} label={label} />
 			</div>
 
 			<div className="flex items-center justify-between mb-2">
 				<div>
 					<small className="text-text-primary/70 text-xs">Progress</small>
-					<p className="text-xl">{`${project.progress}% completed`}</p>
+					<p className="text-xl">{`${project.progress}%`}</p>
 				</div>
 				<div className="text-right">
-					<small className="text-text-primary/70 text-xs">
-						Expected completion date
-					</small>
+					<small className="text-text-primary/70 text-xs">Expected date</small>
 					<p className="text-lg">
 						{format(new Date(project.expected_date), "MM/dd/yyyy")}
 					</p>

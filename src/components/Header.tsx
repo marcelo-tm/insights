@@ -24,16 +24,8 @@ export function Header() {
 			</div>
 
 			<div className="flex items-center gap-4">
-				<CircleButton
-					icon={<Bell />}
-					label="Notifications"
-					onClick={handleToggleNotifications}
-				/>
-				<CircleButton
-					icon={<Settings />}
-					label="Settings"
-					onClick={handleToggleSettings}
-				/>
+				<CircleButton icon={<Bell />} onClick={handleToggleNotifications} />
+				<CircleButton icon={<Settings />} onClick={handleToggleSettings} />
 			</div>
 		</div>
 	);

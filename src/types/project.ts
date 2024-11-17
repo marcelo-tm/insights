@@ -4,7 +4,7 @@ export type Project = {
 	id: number;
 	name: string;
 	progress: number;
-	status: string;
+	status: ProjectStatusList;
 	expected_date: string;
 	owners: string[];
 };
@@ -19,4 +19,8 @@ export type ProjectStatus = {
 	label: string;
 	color: string;
 	icon: typeof FolderCheck;
+};
+
+export type ProjectFilterParams = {
+	status?: string[];
 };

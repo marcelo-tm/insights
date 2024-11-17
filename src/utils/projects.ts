@@ -1,7 +1,8 @@
-import { Clock, FolderCheck, ThumbsUp, TriangleAlert } from "lucide-react";
+import { ClockAlert, FolderCheck, ThumbsUp, TriangleAlert } from "lucide-react";
+
 import type { ProjectStatus, ProjectStatusList } from "../types/project";
 
-const projectStatuses = {
+export const PROJECT_STATUSES = {
 	at_risk: {
 		label: "At Risk",
 		color: "error",
@@ -15,7 +16,7 @@ const projectStatuses = {
 	delayed: {
 		label: "Delayed",
 		color: "warning",
-		icon: Clock,
+		icon: ClockAlert,
 	},
 	completed: {
 		label: "Completed",
@@ -27,5 +28,5 @@ const projectStatuses = {
 export function returnProjectStatusInfo(
 	status: ProjectStatusList
 ): ProjectStatus {
-	return projectStatuses[status];
+	return PROJECT_STATUSES[status];
 }

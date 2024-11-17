@@ -26,14 +26,13 @@ export function MobileSidebar() {
 			<>
 				<CircleButton
 					icon={isExpanded ? <X /> : <Menu />}
-					label="Menu"
 					onClick={handleToggleMenu}
-					className={isExpanded ? "relative z-10 bg-hover" : ""}
+					className={isExpanded ? "relative z-20 bg-hover" : ""}
 				/>
 
 				<div
 					className={cn(
-						"absolute top-0 -left-full w-3/4 md:w-2/4 h-screen bg-surface/95 transition-all duration-300 shadow-lg p-6",
+						"absolute top-0 -left-full w-3/4 md:w-2/4 h-screen bg-surface/95 transition-all duration-300 shadow-lg p-6 z-10",
 						{ "left-0": isExpanded }
 					)}
 				>

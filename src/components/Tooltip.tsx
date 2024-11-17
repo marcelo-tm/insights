@@ -56,7 +56,7 @@ export function Tooltip({
 				positionClasses[position],
 				isActive && activeClass
 			)}
-			style={{ zIndex: 100 }}
+			style={{ zIndex: 40 }}
 		>
 			{text}
 		</div>
