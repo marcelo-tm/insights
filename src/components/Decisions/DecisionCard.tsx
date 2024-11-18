@@ -5,18 +5,18 @@ import type { Decision, DecisionTypesList } from "../../types/decision";
 import { returnDecisionTypeInfo } from "../../utils/decisions";
 import { Tooltip } from "../Tooltip";
 
-type DecisionItemProps = {
+type DecisionCardProps = {
 	decision: Decision;
 };
 
-export function DecisionItem({ decision }: DecisionItemProps) {
+export function DecisionCard({ decision }: DecisionCardProps) {
 	const { icon: Icon, label } = useMemo(
 		() => returnDecisionTypeInfo(decision.type as DecisionTypesList),
 		[decision.type]
 	);
 
 	return (
-		<div className="flex gap-4">
+		<div className="w-full shadow-sm bg-surface rounded-xl p-4 flex gap-4">
 			<div className="rounded-full p-3 bg-primary w-12 h-12 relative group">
 				<Icon color="white" />
 				<Tooltip
@@ -27,7 +27,7 @@ export function DecisionItem({ decision }: DecisionItemProps) {
 			</div>
 
 			<div className="p-4 bg-background rounded-lg text-sm">
-				<p className="text-sm">
+				<p className="text-sm mb-1">
 					{format(new Date(decision.date), "MM/dd/yyyy")}
 				</p>
 
