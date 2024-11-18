@@ -1,6 +1,6 @@
 import { CalendarClock, Code2, Users } from "lucide-react";
 
-import type { DecisionType, DecisionTypesList } from "../types/decisions";
+import type { DecisionType, DecisionTypesList } from "../types/decision";
 
 export const DECISION_TYPES = {
 	scheduling: {

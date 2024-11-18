@@ -6,7 +6,7 @@ import { Clock } from "lucide-react";
 import { Tooltip } from "../Tooltip";
 import { StatusLabel } from "../Content/StatusLabel";
 import { AvatarGroup } from "../Content/AvatarGroup";
-import type { Blocker, BlockerLevelsList } from "../../types/blockers";
+import type { Blocker, BlockerLevelsList } from "../../types/blocker";
 import { returnBlockerLevelInfo } from "../../utils/blockers";
 
 type BlockerLineProps = {

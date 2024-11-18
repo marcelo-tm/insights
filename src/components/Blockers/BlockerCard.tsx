@@ -1,7 +1,7 @@
 import { useMemo } from "react";
 
 import { cn, getIconColor } from "../../utils/general";
-import type { Blocker, BlockerLevelsList } from "../../types/blockers";
+import type { Blocker, BlockerLevelsList } from "../../types/blocker";
 import { returnBlockerLevelInfo } from "../../utils/blockers";
 import { AvatarGroup } from "../Content/AvatarGroup";
 import { Tooltip } from "../Tooltip";

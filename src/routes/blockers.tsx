@@ -4,7 +4,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
 
 import { PageTitle } from "../components/PageTitle";
-import type { BlockerFilterParams } from "../types/blockers";
+import type { BlockerFilterParams } from "../types/blocker";
 import type { LayoutTypes } from "../types/general";
 import { api } from "../api/api";
 import { Container } from "../components/Content/Container";

@@ -1,6 +1,6 @@
 import { Circle, CircleAlert, CircleMinus } from "lucide-react";
 
-import type { BlockerLevel, BlockerLevelsList } from "../types/blockers";
+import type { BlockerLevel, BlockerLevelsList } from "../types/blocker";
 
 export const BLOCKER_LEVELS = {
 	low: {

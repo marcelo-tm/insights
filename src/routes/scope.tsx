@@ -19,7 +19,7 @@ function RouteComponent() {
 	const [layoutType, setLayoutType] = useState<LayoutTypes>("card");
 
 	const { data: scopes } = useQuery({
-		queryKey: ["blockers"],
+		queryKey: ["scopes"],
 		queryFn: api.getScopes,
 	});
 

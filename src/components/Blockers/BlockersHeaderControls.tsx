@@ -8,7 +8,7 @@ import { StatusLabel } from "../Content/StatusLabel";
 import { Button } from "../Button";
 import { cn } from "../../utils/general";
 import type { LayoutTypes } from "../../types/general";
-import type { BlockerFilterParams } from "../../types/blockers";
+import type { BlockerFilterParams } from "../../types/blocker";
 import { BLOCKER_LEVELS } from "../../utils/blockers";
 
 type ContainerProps = {
