@@ -24,9 +24,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
 
 	return (
 		<div className="shadow-sm bg-surface rounded-xl p-4">
-			<div
-				className={cn("flex items-center justify-between rounded-t-xl pb-4")}
-			>
+			<div className={cn("flex items-center justify-between pb-2")}>
 				<p className="font-bold">{project.name}</p>
 				<StatusLabel color={color} icon={Icon} label={label} />
 			</div>

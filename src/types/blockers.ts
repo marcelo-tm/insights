@@ -3,7 +3,7 @@ import type { FolderCheck } from "lucide-react";
 export type Blocker = {
 	id: number;
 	blocked: string;
-	blocked_by: number;
+	blocked_by: string;
 	reason: string;
 	owner: string;
 	level: string;

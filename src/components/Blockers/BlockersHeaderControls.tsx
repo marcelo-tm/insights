@@ -1,47 +1,47 @@
 import { Grid2x2, List } from "lucide-react";
 import { useState } from "react";
 
-import type { ProjectFilterParams } from "../../types/project";
 import useBreakpoint from "../../hooks/useBreakpoint";
 import { CircleButton } from "../CircleButton";
 import { Filter } from "../Filter";
-import { PROJECT_STATUSES } from "../../utils/projects";
 import { StatusLabel } from "../Content/StatusLabel";
 import { Button } from "../Button";
 import { cn } from "../../utils/general";
 import type { LayoutTypes } from "../../types/general";
+import type { BlockerFilterParams } from "../../types/blockers";
+import { BLOCKER_LEVELS } from "../../utils/blockers";
 
 type ContainerProps = {
 	onLayoutChange: (layoutType: LayoutTypes) => void;
 	layoutType: LayoutTypes;
-	onApplyFilters: (filters: ProjectFilterParams) => void;
+	onApplyFilters: (filters: BlockerFilterParams) => void;
 };
 
-export function ProjectHeaderControls({
+export function BlockerHeaderControls({
 	onLayoutChange,
 	layoutType,
 	onApplyFilters,
 }: ContainerProps) {
 	const { isSmallScreen } = useBreakpoint();
-	const [statusFilter, setStatusFilter] = useState<string[]>([]);
+	const [LevelFilter, setLevelFilter] = useState<string[]>([]);
 
-	function handleStatusFilterToggle(status: string) {
+	function handleLevelFilterToggle(status: string) {
 		let newStatusList = [];
-		if (statusFilter.includes(status)) {
-			newStatusList = statusFilter.filter((item) => item !== status);
+		if (LevelFilter.includes(status)) {
+			newStatusList = LevelFilter.filter((item) => item !== status);
 		} else {
-			newStatusList = [...statusFilter, status];
+			newStatusList = [...LevelFilter, status];
 		}
-		setStatusFilter(newStatusList);
+		setLevelFilter(newStatusList);
 	}
 
 	function handleApplyFilters() {
-		onApplyFilters({ status: statusFilter });
+		onApplyFilters({ level: LevelFilter });
 	}
 
 	function handleResetFilters() {
-		setStatusFilter([]);
-		onApplyFilters({ status: [] });
+		setLevelFilter([]);
+		onApplyFilters({ level: [] });
 	}
 
 	return (
@@ -59,25 +59,25 @@ export function ProjectHeaderControls({
 
 			<Filter>
 				<>
-					<span className="mb-2 text-text-primary/70">Status</span>
+					<span className="mb-2 text-text-primary/70">Level</span>
 					<ul
 						className={cn("flex items-center gap-4", {
 							"flex-wrap": isSmallScreen,
 						})}
 					>
-						{Object.keys(PROJECT_STATUSES).map((key) => {
+						{Object.keys(BLOCKER_LEVELS).map((key) => {
 							const statusObj =
-								PROJECT_STATUSES[key as keyof typeof PROJECT_STATUSES];
+								BLOCKER_LEVELS[key as keyof typeof BLOCKER_LEVELS];
 							return (
 								<button
 									type="button"
 									key={key}
-									onClick={() => handleStatusFilterToggle(key)}
+									onClick={() => handleLevelFilterToggle(key)}
 								>
 									<StatusLabel
 										label={statusObj.label}
 										color={
-											statusFilter.includes(key)
+											LevelFilter.includes(key)
 												? statusObj.color
 												: "bg-slate-200 text-text-primary"
 										}

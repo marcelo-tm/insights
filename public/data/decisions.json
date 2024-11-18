@@ -1,0 +1,82 @@
+[
+	{
+		"id": 1,
+		"description": "Decision 0: Adjust Project Scope",
+		"by": "Charlie",
+		"rationale": "Resource limitations",
+		"date": "2023-11-01",
+		"type": "scheduling"
+	},
+	{
+		"id": 2,
+		"description": "Decision 1: Adjust Project Scope",
+		"by": "Evelyn",
+		"rationale": "Align with stakeholder goals",
+		"date": "2023-12-05",
+		"type": "scheduling"
+	},
+	{
+		"id": 3,
+		"description": "Decision 2: Adjust Project Scope",
+		"by": "Evelyn",
+		"rationale": "Align with stakeholder goals",
+		"date": "2024-03-03",
+		"type": "resourcing"
+	},
+	{
+		"id": 4,
+		"description": "Decision 3: Adjust Project Scope",
+		"by": "Evelyn",
+		"rationale": "Ensure timely delivery",
+		"date": "2024-07-22",
+		"type": "resourcing"
+	},
+	{
+		"id": 5,
+		"description": "Decision 4: Adjust Project Scope",
+		"by": "Evelyn",
+		"rationale": "Resource limitations",
+		"date": "2024-08-26",
+		"type": "technical"
+	},
+	{
+		"id": 6,
+		"description": "Decision 5: Adjust Project Scope",
+		"by": "Charlie",
+		"rationale": "Align with stakeholder goals",
+		"date": "2024-10-13",
+		"type": "resourcing"
+	},
+	{
+		"id": 7,
+		"description": "Decision 6: Adjust Project Scope",
+		"by": "Charlie",
+		"rationale": "Align with stakeholder goals",
+		"date": "2024-08-28",
+		"type": "scheduling"
+	},
+	{
+		"id": 8,
+		"description": "Decision 7: Adjust Project Scope",
+		"by": "Charlie",
+		"rationale": "Resource limitations",
+		"date": "2023-10-01",
+		"type": "technical"
+	},
+	{
+		"id": 9,
+		"description": "Decision 8: Adjust Project Scope",
+		"by": "Alice",
+		"rationale": "Ensure timely delivery",
+		"date": "2024-10-24",
+		"type": "technical"
+	},
+	{
+		"id": 10,
+		"description": "Decision 9: Adjust Project Scope",
+		"by": "Alice",
+		"rationale": "Ensure timely delivery",
+		"date": "2024-05-16",
+		"type": "resourcing"
+	}
+]

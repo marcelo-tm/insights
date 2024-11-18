@@ -8,8 +8,9 @@ import type { BlockerFilterParams } from "../types/blockers";
 import type { LayoutTypes } from "../types/general";
 import { api } from "../api/api";
 import { Container } from "../components/Content/Container";
-import { BlockerHeaderControls } from "../components/Blockers/BlockersHeaderControler";
+import { BlockerHeaderControls } from "../components/Blockers/BlockersHeaderControls";
 import { BlockerCard } from "../components/Blockers/BlockerCard";
+import { BLockerLine } from "../components/Blockers/BlockerLine";
 
 export const Route = createFileRoute("/blockers")({
 	component: RouteComponent,
@@ -57,7 +58,7 @@ function RouteComponent() {
 				{blockers?.map((blocker) => {
 					if (layoutType === "card")
 						return <BlockerCard key={blocker.id} blocker={blocker} />;
-					// return <BlockerLine key={blocker.id} blocker={blocker} />;
+					return <BLockerLine key={blocker.id} blocker={blocker} />;
 				})}
 			</Container>
 		</div>

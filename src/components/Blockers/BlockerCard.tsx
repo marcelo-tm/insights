@@ -1,12 +1,10 @@
 import { useMemo } from "react";
-import { format } from "date-fns";
 
-import { cn } from "../../utils/general";
-import { ProgressBar } from "../ProgressBar";
-import { StatusLabel } from "../Content/StatusLabel";
-import { AvatarGroup } from "../Content/AvatarGroup";
+import { cn, getIconColor } from "../../utils/general";
 import type { Blocker, BlockerLevelsList } from "../../types/blockers";
 import { returnBlockerLevelInfo } from "../../utils/blockers";
+import { AvatarGroup } from "../Content/AvatarGroup";
+import { Tooltip } from "../Tooltip";
 
 type BlockerCardProps = {
 	blocker: Blocker;
@@ -23,31 +21,51 @@ export function BlockerCard({ blocker }: BlockerCardProps) {
 	);
 
 	return (
-		<div className="shadow-sm bg-surface rounded-xl p-4">
-			<div className={cn("flex items-center justify-end rounded-t-xl pb-4")}>
-				{/* <p className="font-bold">{blocker.name}</p> */}
-				<StatusLabel color={color} icon={Icon} label={label} />
+		<div
+			className={cn("shadow-sm bg-surface rounded-xl p-4 border-t-8", {
+				"border-error": color === "error",
+				"border-warning": color === "warning",
+				"border-info": color === "info",
+			})}
+		>
+			<div className={cn("flex items-center justify-between pb-2")}>
+				<div>
+					<small className="text-text-primary/70 text-xs">
+						Blocked Item/Person
+					</small>
+					<p>{blocker.blocked}</p>
+				</div>
+
+				<div className="relative group">
+					<Icon size={30} color={getIconColor(color)} />
+					<Tooltip
+						text={label}
+						position="bottom"
+						baseClass={cn(
+							"text-xs bg-slate-200 p-1 shadow-md font-normal rounded-md text-white",
+							{
+								"bg-error": color === "error",
+								"bg-warning": color === "warning",
+								"bg-info": color === "info",
+							}
+						)}
+					/>
+				</div>
 			</div>
 
-			{/* <div className="flex items-center justify-between mb-2">
-				<div>
-					<small className="text-text-primary/70 text-xs">Progress</small>
-					<p className="text-xl">{`${blocker.progress}% completed`}</p>
-				</div>
-				<div className="text-right">
-					<small className="text-text-primary/70 text-xs">
-						Expected completion date
-					</small>
-					<p className="text-lg">
-						{format(new Date(blocker.expected_date), "MM/dd/yyyy")}
-					</p>
-				</div>
+			<div>
+				<small className="text-text-primary/70 text-xs">Blocked by</small>
+				<p>{blocker.blocked_by}</p>
 			</div>
-			<ProgressBar progress={blocker.progress} progressColor={`bg-${color}`} />
+
+			<div>
+				<small className="text-text-primary/70 text-xs">Reason for Block</small>
+				<p>{blocker.reason}</p>
+			</div>
 
 			<div className="mt-2">
-				<AvatarGroup names={blocker.owners} />
-			</div> */}
+				<AvatarGroup names={[blocker.owner]} />
+			</div>
 		</div>
 	);
 }

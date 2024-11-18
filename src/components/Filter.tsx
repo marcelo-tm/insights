@@ -1,44 +1,57 @@
-import type { ReactNode } from "react";
+import { useState, type ReactNode } from "react";
 
 import useBreakpoint from "../hooks/useBreakpoint";
 import { cn } from "../utils/general";
-import { X } from "lucide-react";
+import { SlidersHorizontal, X } from "lucide-react";
+import { CircleButton } from "./CircleButton";
 
 type FilterProps = {
-	show: boolean;
 	children: ReactNode;
-	onClose: () => void;
 };
 
-export function Filter({ show, children, onClose }: FilterProps) {
+export function Filter({ children }: FilterProps) {
 	const { isSmallScreen } = useBreakpoint();
+	const [show, setShow] = useState(false);
 
-	if (show) {
-		return (
-			<>
-				<div
-					className={cn(
-						{
-							"absolute bg-surface p-4 shadow-xl rounded-t-xl mt-2 flex flex-col bottom-0 left-0 w-full z-50 transition-all duration-300 md:w-auto md:rounded-xl":
-								isSmallScreen,
-						},
-						{
-							"absolute z-50 bg-surface p-4 shadow-xl rounded-xl mt-2 flex flex-col":
-								!isSmallScreen,
-						}
-					)}
-				>
-					<button type="button" className="self-end" onClick={onClose}>
-						<X />
-					</button>
-					{children}
-				</div>
-				{isSmallScreen && (
-					<div className="absolute top-0 left-0 h-screen w-full bg-black/50 z-40" />
-				)}
-			</>
-		);
+	function handleToggleFilter() {
+		setShow((prevState) => !prevState);
 	}
 
-	return null;
+	return (
+		<div className={cn({ relative: !isSmallScreen })}>
+			<CircleButton
+				icon={<SlidersHorizontal />}
+				label="Filters"
+				tooltipPosition="top"
+				onClick={handleToggleFilter}
+			/>
+			<div
+				className={cn(
+					"invisible opacity-0 absolute bg-surface z-50 transition-all duration-300 p-4 shadow-xl flex flex-col mt-2",
+					{
+						"rounded-t-xl bottom-0 left-0 w-full": isSmallScreen,
+					},
+					{
+						"rounded-xl": !isSmallScreen,
+					},
+					{
+						"visible opacity-100": show,
+					}
+				)}
+			>
+				<button type="button" className="self-end" onClick={handleToggleFilter}>
+					<X />
+				</button>
+				{children}
+			</div>
+			{isSmallScreen && (
+				<div
+					className={cn(
+						"absolute invisible opacity-0 top-0 left-0 h-screen w-full bg-black/50 z-40",
+						{ "visible opacity-100": show }
+					)}
+				/>
+			)}
+		</div>
+	);
 }

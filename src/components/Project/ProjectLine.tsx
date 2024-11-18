@@ -9,11 +9,11 @@ import { Tooltip } from "../Tooltip";
 import { StatusLabel } from "../Content/StatusLabel";
 import { AvatarGroup } from "../Content/AvatarGroup";
 
-type ProjectCardProps = {
+type ProjectLineProps = {
 	project: Project;
 };
 
-export function ProjectLine({ project }: ProjectCardProps) {
+export function ProjectLine({ project }: ProjectLineProps) {
 	const {
 		color,
 		icon: Icon,

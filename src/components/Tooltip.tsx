@@ -51,7 +51,6 @@ export function Tooltip({
 		<div
 			className={cn(
 				"absolute invisible text-sm transition-all duration-300 opacity-0 whitespace-nowrap group-hover:visible group-hover:opacity-100",
-
 				baseClass,
 				positionClasses[position],
 				isActive && activeClass

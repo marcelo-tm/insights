@@ -1,5 +1,6 @@
 import type { Blocker, BlockerFilterParams } from "../types/blockers";
 import type { Project, ProjectFilterParams } from "../types/project";
+import type { Scope } from "../types/scope";
 
 export const api = {
 	getProjects: async (params?: ProjectFilterParams): Promise<Project[]> => {
@@ -30,5 +31,10 @@ export const api = {
 
 			return matches;
 		});
+	},
+
+	getScopes: async (): Promise<Scope[]> => {
+		const response = await fetch("/data/scope.json");
+		return response.json();
 	},
 };
