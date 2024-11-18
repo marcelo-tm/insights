@@ -1,4 +1,5 @@
 import type { Blocker, BlockerFilterParams } from "../types/blocker";
+import type { Decision } from "../types/decision";
 import type { Metric } from "../types/metric";
 import type { Project, ProjectFilterParams } from "../types/project";
 import type { Scope } from "../types/scope";
@@ -41,6 +42,11 @@ export const api = {
 
 	getMetrics: async (): Promise<Metric[]> => {
 		const response = await fetch("/data/metrics.json");
+		return response.json();
+	},
+
+	getDecisions: async (): Promise<Decision[]> => {
+		const response = await fetch("/data/decisions.json");
 		return response.json();
 	},
 };
